@@ -1,0 +1,86 @@
+name: battle-city-3  # Уникальное имя игры в Snap Store
+version: '1.7.5'  # Версия вашей игры
+summary: Classic arcade tank battle game  # Краткое описание
+description: |
+  Battle City 3 is a Unity-based game inspired by the classic arcade game.
+  Fight enemies, defend your base, and enjoy dynamic tank battles.
+
+base: core20  # Базовая система
+confinement: strict  # Ограничение безопасности
+grade: stable
+parts:
+   battle-city-3:
+     after: [desktop-gtk2]
+     plugin: dump
+     source: .
+     stage-packages:
+       - libsecret-1-0
+       - libgl1-mesa-dri
+       - libglu1-mesa
+       - libgl1-mesa-glx
+       - libgles2-mesa
+       - libflac8
+       - libxcursor1
+       - libxi6
+       - libxinerama1
+       - libxrandr2
+       - libxrender1
+       - libasound2
+       - libasyncns0
+       - libogg0
+       - libpulse0
+       - libsndfile1
+       - libtheora0
+       - libvorbis0a
+       - libvorbisenc2
+       - libvorbisfile3
+       - libwebp6
+       - libaudio2
+   desktop-gtk2:
+     build-packages:
+       - build-essential
+       - libgtk2.0-dev
+     make-parameters:
+       - FLAVOR=gtk2
+     plugin: make
+     source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
+     source-subdir: gtk
+     stage-packages:
+       - libxkbcommon0
+       - ttf-ubuntu-font-family
+       - dmz-cursor-theme
+       - light-themes
+       - adwaita-icon-theme
+       - gnome-themes-standard
+       - shared-mime-info
+       - libgtk2.0-0
+       - libgdk-pixbuf2.0-0
+       - libglib2.0-bin
+       - libgtk2.0-bin
+       - unity-gtk2-module
+       - locales-all
+       - libappindicator1
+       - xdg-user-dirs
+       - ibus-gtk
+       - libibus-1.0-5
+       
+apps:
+   battle-city-3:
+     command: BattleCity3.x86_64
+     environment:
+#       LD_LIBRARY_PATH: "$SNAP/BattleCity3_v1_7_2_Data/Plugins/x86_64:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$LD_LIBRARY_PATH"
+       UNITY_GFX_MODE: "1"
+       LIBGL_ALWAYS_INDIRECT: "1"
+     plugs:
+       - x11
+       - opengl
+       - network
+       - network-bind
+       - desktop
+       - desktop-legacy
+       - audio-playback
+       - pulseaudio
+       - alsa
+       - hardware-observe
+       - joystick
+     desktop: desktop/battle-city-3.desktop
