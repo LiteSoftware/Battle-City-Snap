@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "285164383839",
+    "firebase_url": "https://battle-city-3.firebaseio.com",
+    "project_id": "battle-city-3",
+    "storage_bucket": "battle-city-3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:285164383839:android:1924ded4dd35b2aa5135ea",
+        "android_client_info": {
+          "package_name": "com.udfsoft.tanks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "285164383839-10dfffhjvddmcig0sbomcbop5leb99ij.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZhND7mMyFDKe9YEY_M1tQff7pVsiQheE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "285164383839-10dfffhjvddmcig0sbomcbop5leb99ij.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
