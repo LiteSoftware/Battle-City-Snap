@@ -2,7 +2,7 @@
 Version=1.0
 Name=Battle City 3
 Comment=Play Battle City 3
-Exec=BattleCity3.x86_64
+Exec=battle-city-3
 Icon=icons/icon.png
 Terminal=false
 Type=Application

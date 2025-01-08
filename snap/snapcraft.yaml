@@ -1,56 +1,62 @@
 name: battle-city-3  # Уникальное имя игры в Snap Store
-version: '1.7.5'  # Версия вашей игры
+version: '1.7.7'  # Версия вашей игры
 summary: Classic arcade tank battle game  # Краткое описание
 description: |
   Battle City 3 is a Unity-based game inspired by the classic arcade game.
   Fight enemies, defend your base, and enjoy dynamic tank battles.
 
-base: core20  # Базовая система
+base: core22  # Базовая система
 confinement: strict  # Ограничение безопасности
-grade: stable
+grade: stable  # Статус готовности пакета
+
 parts:
-   battle-city-3:
-     plugin: dump
-     source: .
-     stage-packages:
-       - libsecret-1-0
-       - libgl1-mesa-dri
-       - libglu1-mesa
-       - libgl1-mesa-glx
-       - libgles2-mesa
-       - libflac8
-       - libxcursor1
-       - libxi6
-       - libxinerama1
-       - libxrandr2
-       - libxrender1
-       - libasound2
-       - libasyncns0
-       - libogg0
-       - libpulse0
-       - libsndfile1
-       - libtheora0
-       - libvorbis0a
-       - libvorbisenc2
-       - libvorbisfile3
-       - libwebp6
-       - libaudio2
-       
+  battle-city-3:
+    plugin: dump
+    source: .
+    stage-packages:
+      - libsecret-1-0
+      - libgl1-mesa-dri
+      - libglu1-mesa
+      - libgl1-mesa-glx
+      - libgles2-mesa
+      - libflac8
+      - libxcursor1
+      - libxi6
+      - libxinerama1
+      - libxrandr2
+      - libxrender1
+      - libasound2
+      - libasyncns0
+      - libogg0
+      - libpulse0
+      - libsndfile1
+      - libtheora0
+      - libvorbis0a
+      - libvorbisenc2
+      - libvorbisfile3
+      - libaudio2
+      - libvulkan1
+      - mesa-vulkan-drivers
+
 apps:
-   battle-city-3:
-     command: BattleCity3.x86_64
-     environment:
-       UNITY_GFX_MODE: "1"
-       LIBGL_ALWAYS_INDIRECT: "1"
-     plugs:
-       - x11
-       - opengl
-       - network
-       - network-bind
-       - desktop
-       - desktop-legacy
-       - audio-playback
-       - pulseaudio
-       - alsa
-       - joystick
-     desktop: desktop/battle-city-3.desktop
+  battle-city-3:
+    command: BattleCity3.x86_64
+    environment:
+      LIBGL_DRIVERS_PATH: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/dri"
+      LD_LIBRARY_PATH: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$LD_LIBRARY_PATH"
+      UNITY_GFX_MODE: "OpenGLCore"
+      LIBGL_ALWAYS_INDIRECT: "0"
+      SDL_VIDEODRIVER: "x11"
+    plugs:
+      - x11
+      - opengl
+      - network
+      - network-bind
+      - desktop
+      - desktop-legacy
+      - audio-playback
+      - pulseaudio
+      - alsa
+      - joystick
+      - home
+    desktop: desktop/battle-city-3.desktop
