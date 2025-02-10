@@ -1,5 +1,5 @@
 name: battle-city-3  # Уникальное имя игры в Snap Store
-version: '1.7.7'  # Версия вашей игры
+version: '1.7.9'  # Версия вашей игры
 summary: Classic arcade tank battle game  # Краткое описание
 description: |
   Battle City 3 is a Unity-based game inspired by the classic arcade game.
